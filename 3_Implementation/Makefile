@@ -1,34 +1,23 @@
 PROJ_NAME = Inventory
 TEST_PROJ_NAME = Test_$(PROJ_NAME)
+TEST_OUTPUT = Test_$(PROJ_NAME)
+PROJECT_OUTPUT = $(PROJ_NAME)
 
+CC = g++
 
-
-SRC =	src/f1.c \
-	src/f2.c \
-	src/f3.c \
-	src/f4.c
-
-
-CFLAGS += -I./inc
-
-LDFLAGS = -W -lncurses
-
-RM =	rm -f
-
-CC = gcc
-
-OBJS=	$(SRC:.c=.o)
-
-COV_SRC =unity/unity.c 
-
-
-TEST_SRC =unity/unity.c 
 INC_H = inc
-INC_T = unity
+
+SRC =	src/inventory.cpp \ 
+	inc/inventory.h \
+	test/test.cpp
+	
+LIB = -lgtest -lgtest_main -lpthread
+
+COV_SRC = test.cpp
 
 #To check if the OS is Windows or Linux and set the executable file extension and delete command accordingly
 ifdef OS
-   RM = del 
+   RM = rm 
    FixPath = $(subst /,\,$1)
    EXEC = exe
 else
@@ -38,55 +27,48 @@ else
 	  EXEC = out
    endif
 endif
+.PHONY: run clean test doc all
 
-all: $(PROJ_NAME)
-
-$(PROJ_NAME): $(OBJS)
-	$(CC) -o $(PROJ_NAME) $(OBJS) $(LDFLAGS)
-#gcc -I $(INC_H) $(SRC) main.c -o $(call FixPath,$(PROJ_NAME).$(EXEC))
-
+all:
+	$(CC) $(SRC) $(LIB) -o $(call FixPath,$(PROJECT_OUTPUT).$(EXEC))
+	
 run:
-	$(call FixPath,$(PROJ_NAME).$(EXEC))
-
-clean:
-	$(RM) $(OBJS)
-	$(RM) *.DAT
-	$(RM) *.$(EXEC)
-	$(RM) *.gcda
-	$(RM) *.gcno
-	$(RM) *.c.gcov	
-
-test:
-	gcc -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) $(LDFLAGS) unity/unity.c -o $(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
-	./$(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
-
-fclean: clean
-	$(RM) $(PROJ_NAME)
-
-re: fclean all
+	./$(call FixPath,$(PROJECT_OUTPUT).$(EXEC))
 
 coverage:
-	cp test/test.c
-	gcc -fprofile-arcs -ftest-coverage -I $(INC_H) -I $(INC_T) $(LDFLAGS) unity/unity.c test/test.c  $(SRC) -o $(call FixPath, $(TEST_PROJ_NAME).$(EXEC))
-	$(call FixPath, ./$(TEST_PROJ_NAME).$(EXEC))
+	#cp test_vector.cpp .
+	$(CC) -fprofile-arcs -ftest-coverage $(SRC) $(LIB) -o $(call FixPath, $(TEST_OUTPUT).$(EXEC))
+	$(call FixPath, ./$(TEST_OUTPUT).$(EXEC))
 	gcov -a $(COV_SRC)
-	$(RM) *.$(EXEC)
 	$(RM) *.gcda
 	$(RM) *.gcno
-	$(RM) *.c.gcov
-	$(RM) *.DAT
-	$(RM) test/test.c
-
+	$(RM) *.c.gcov 
+	$(RM) *.h.gcov 
+	$(RM) *.tcc.gcov 
+	$(RM) *.cpp.gcov
+	$(RM) *.gcov
+	$(RM) *.$(EXEC) 
 
 cppcheck:
 	cppcheck --enable=all $(SRC)
+
+valgrind:
+	$(CC) -fprofile-arcs -ftest-coverage $(SRC) $(LIB) -o $(call FixPath, $(TEST_OUTPUT).$(EXEC))
+	valgrind ./$(TEST_OUTPUT).$(EXEC)
+	$(RM) *.gcda
+	$(RM) *.tcc.gcov
+	$(RM) *.gcda
+	$(RM) *.gcno 
+	$(RM) *.$(EXEC) 
 
 debug:
 	gcc -I $(INC_H) $(SRC) -g -o $(PROJ_NAME).$(EXEC)
 	gdb $(PROJ_NAME).$(EXEC)
 
-
-valgrind:
-	valgrind ./$(TEST_PROJ_NAME).$(EXEC)
-
-.PHONY: all clean fclean re run test doc
+clean:
+	$(RM) *.$(EXEC) 
+	$(RM) $(OBJS)
+	$(RM) *.DAT
+	$(RM) *.gcda
+	$(RM) *.gcno
+	$(RM) *.c.gcov	
