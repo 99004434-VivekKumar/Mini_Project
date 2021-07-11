@@ -19,10 +19,10 @@
 TEST(Data, Empty_Constructor)
 {
   Data a;
-  EXPECT_EQ("Ground", a.getProductName());
+  EXPECT_EQ("Null", a.getProductName());
   EXPECT_EQ(0, a.getProductNum());
   EXPECT_FLOAT_EQ(0, a.getDemand());
-  EXPECT_EQ("OFF", a.getState());
+  EXPECT_EQ("Unavailable", a.getState());
   EXPECT_FLOAT_EQ(0.0, a.getQuantity());
 }
 
@@ -32,11 +32,11 @@ TEST(Data, Empty_Constructor)
  */
 TEST(Data, Param_Constructor)
 {
-  Data a("Ground", 20, 50, "OFF", 20.1);
-  EXPECT_EQ("Ground", a.getProductName());
+  Data a("Soap", 20, 50, "Unavailable", 20.1);
+  EXPECT_EQ("Soap", a.getProductName());
   EXPECT_EQ(20, a.getProductNum());
   EXPECT_FLOAT_EQ(50, a.getDemand());
-  EXPECT_EQ("OFF", a.getState());
+  EXPECT_EQ("Unavailable", a.getState());
   EXPECT_FLOAT_EQ(20.1, a.getQuantity());
 }
 
@@ -46,11 +46,11 @@ TEST(Data, Param_Constructor)
  */
 TEST(Data, stringToObject)
 {
-  Data a = stringToObject("First,101,50.1,ON,25.51");
-  EXPECT_EQ("First", a.getProductName());
+  Data a = stringToObject("Shampoo,101,50.1,Available,25.51");
+  EXPECT_EQ("Shampoo", a.getProductName());
   EXPECT_EQ(101, a.getProductNum());
   EXPECT_FLOAT_EQ(50.1, a.getDemand());
-  EXPECT_EQ("ON", a.getState());
+  EXPECT_EQ("Available", a.getState());
   EXPECT_FLOAT_EQ(25.51, a.getQuantity());
 }
 
@@ -61,9 +61,9 @@ TEST(Data, stringToObject)
 TEST(Data, highestPowerConsumer)
 {
   vector<Data> testInventory;
-  Data a = stringToObject("First,101,50.1,ON,25.51");
-  Data b = stringToObject("Ground,5,90.5,OFF,35.6");
-  Data c = stringToObject("Fourth,403,70.4,ON,25.74");
+  Data a = stringToObject("Shampoo,101,50.1,Available,25.51");
+  Data b = stringToObject("Soap,5,90.5,Unavailable,35.6");
+  Data c = stringToObject("Sugar,403,70.4,Available,25.74");
   testInventory.push_back(a);
   testInventory.push_back(b);
   testInventory.push_back(c);
@@ -77,9 +77,9 @@ TEST(Data, highestPowerConsumer)
 TEST(Data, highestProductQuantity)
 {
   vector<Data> testInventory;
-  Data a = stringToObject("First,101,50.1,ON,25.51");
-  Data b = stringToObject("Ground,5,90.5,OFF,35.6");
-  Data c = stringToObject("Fourth,403,70.4,ON,25.74");
+  Data a = stringToObject("Shampoo,101,50.1,Available,25.51");
+  Data b = stringToObject("Soap,5,90.5,Unavailable,35.6");
+  Data c = stringToObject("Sugar,403,70.4,Available,25.74");
   testInventory.push_back(a);
   testInventory.push_back(b);
   testInventory.push_back(c);
@@ -93,15 +93,15 @@ TEST(Data, highestProductQuantity)
 TEST(Data, productStatusAvailable)
 {
   vector<Data> testInventory, resultInventory, expectedResultInventory;
-  string testStr = "Ground";
-  Data a = stringToObject("First,101,50.1,ON,25.51");
-  Data b = stringToObject("Ground,5,90.5,OFF,35.6");
-  Data c = stringToObject("Fourth,403,70.4,ON,25.74");
-  Data d = stringToObject("Ground,1,50,ON,25.5");
-  Data e = stringToObject("Ground,2,60,ON,25.6");
-  Data f = stringToObject("Ground,3,70,ON,25.7");
-  Data g = stringToObject("Ground,100,80,OFF,65");
-  Data h = stringToObject("Ground,5,90.5,OFF,35.6");
+  string testStr = "Soap";
+  Data a = stringToObject("Shampoo,101,50.1,Available,25.51");
+  Data b = stringToObject("Soap,5,90.5,Unavailable,35.6");
+  Data c = stringToObject("Sugar,403,70.4,Available,25.74");
+  Data d = stringToObject("Soap,1,50,Available,25.5");
+  Data e = stringToObject("Soap,2,60,Available,25.6");
+  Data f = stringToObject("Soap,3,70,Available,25.7");
+  Data g = stringToObject("Soap,100,80,Unavailable,65");
+  Data h = stringToObject("Soap,5,90.5,Unavailable,35.6");
   testInventory.push_back(a);
   testInventory.push_back(b);
   testInventory.push_back(c);
@@ -130,18 +130,18 @@ TEST(Data, productStatusAvailable)
  * @brief Testing airConditionerStatusOFF function
  * 
  */
-TEST(Data, airConditionerStatusOFF)
+TEST(Data, productStatusUnavailable)
 {
   vector<Data> testInventory, resultInventory, expectedResultInventory;
   int minimumQuantity = 30;
-  Data a = stringToObject("First,101,50.1,ON,25.51");
-  Data b = stringToObject("Ground,5,90.5,OFF,35.6");
-  Data c = stringToObject("Fourth,403,70.4,ON,25.74");
-  Data d = stringToObject("Ground,1,50,ON,25.5");
-  Data e = stringToObject("Ground,2,60,ON,25.6");
-  Data f = stringToObject("Ground,3,70,ON,25.7");
-  Data g = stringToObject("Ground,100,80,OFF,65");
-  Data h = stringToObject("Second,204,80.2,OFF,35.52");
+  Data a = stringToObject("Shampoo,101,50.1,Available,25.51");
+  Data b = stringToObject("Soap,5,90.5,Unavailable,35.6");
+  Data c = stringToObject("Sugar,403,70.4,Available,25.74");
+  Data d = stringToObject("Soap,1,50,Available,25.5");
+  Data e = stringToObject("Soap,2,60,Available,25.6");
+  Data f = stringToObject("Soap,3,70,Available,25.7");
+  Data g = stringToObject("Soap,100,80,Unavailable,65");
+  Data h = stringToObject("Salt,204,80.2,Unavailable,35.52");
   testInventory.push_back(a);
   testInventory.push_back(b);
   testInventory.push_back(c);
