@@ -3,8 +3,8 @@
 
 ![image]()
 
-Build | Code Quality | Unity | Git Inspector
------------|----------|---------|----------------
+Build | Code Quality | Git Inspector
+-----------|----------|----------------
 [![C/C++ CI - Build Status](https://github.com/99004434-VivekKumar/Mini_Project/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/99004434-VivekKumar/Mini_Project/actions/workflows/c-cpp.yml) | [![Code Quality - Static Code - Cppcheck](https://github.com/99004434-VivekKumar/Mini_Project/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/99004434-VivekKumar/Mini_Project/actions/workflows/cppcheck.yml) [![CodeQuality Dynamic Code Analysis Valgrind](https://github.com/99004434-VivekKumar/Mini_Project/actions/workflows/dynamic-code-quality.yml/badge.svg)](https://github.com/99004434-VivekKumar/Mini_Project/actions/workflows/dynamic-code-quality.yml) [![CI-Coverage](https://github.com/99004434-VivekKumar/Mini_Project/actions/workflows/coverage.yml/badge.svg)](https://github.com/99004434-VivekKumar/Mini_Project/actions/workflows/coverage.yml) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/809fecee5536430f8f7908bfa4842697)](https://www.codacy.com/gh/99004434-VivekKumar/Mini_Project/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=99004434-VivekKumar/Mini_Project&amp;utm_campaign=Badge_Grade) | [![Contribution Check - Git Inspector](https://github.com/99004434-VivekKumar/Mini_Project/actions/workflows/gitinspector.yml/badge.svg)](https://github.com/99004434-VivekKumar/Mini_Project/actions/workflows/gitinspector.yml)
 
 ## Folder Structure
