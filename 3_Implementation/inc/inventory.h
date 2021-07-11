@@ -1,5 +1,5 @@
 /**
- * @file vector.h
+ * @file inventory.h
  * @author Vivek Kumar Yadav (vivek.yadav@ltts.com)
  * @brief Function declarations and class definitions for Inventory management feature
  * @version 0.1
