@@ -1,6 +1,6 @@
 /**
  * @file test_vector.cpp
- * @author Swapnil Khandekar (swapnil.khandekar@ltts.com)
+ * @author Vivek Kumar Yadav (vivek.yadav@ltts.com)
  * @brief 
  * @version 0.1
  * @date 2021-06-08
