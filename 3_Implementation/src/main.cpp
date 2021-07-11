@@ -1,6 +1,6 @@
 
 /**
- * @file main.c
+ * @file main.cpp
  * @author Vivek Kumar Yadav - 99004434(vivek.yadav@ltts.com)
  * @brief function definition
  * @version 0.1
