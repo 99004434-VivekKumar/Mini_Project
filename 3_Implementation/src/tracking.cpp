@@ -28,7 +28,7 @@ vector<Data> dataTracking;
  * @param dataTracking 
  * @return int 
  */
-int highestDemandCavailablesumer(vector<Data> dataTracking)
+int highestDemandConsumer(vector<Data> dataTracking)
 {	
 	float highestDemand = 0.0;
 	int productNo;
@@ -47,7 +47,7 @@ int highestDemandCavailablesumer(vector<Data> dataTracking)
  * @param dataTracking 
  * @return int 
  */
-int highestproductQuantityerature(vector<Data> dataTracking)
+int highestProductQuantity(vector<Data> dataTracking)
 {
 	float highestQuantity = 0.0;
 	int productNo=0;
@@ -185,7 +185,7 @@ void printResults()
 {
     string product = "Soap";
 	float minimumDemand = 20;
-    cout<<"Highest Cavailablesumer Demand is for Product Number: "<<highestDemandCavailablesumer(dataTracking)<<endl;
+    cout<<"Highest Cavailablesumer Demand is for Product Number: "<<highestDemandConsumer(dataTracking)<<endl;
 	cout<<"Highest Product quantity available is for Product Number: "<< highestProductQuantity(dataTracking)<<endl;
     cout<<"Details of Product "<<product<<" which is available currently"<<endl;
     for(auto i:productStatusAvailable(dataTracking, product))

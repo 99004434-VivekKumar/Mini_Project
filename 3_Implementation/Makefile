@@ -5,7 +5,7 @@ PROJECT_OUTPUT = $(PROJ_NAME)
 
 CC = g++
 
-INC_H = -Iinc
+INC = -Iinc
 
 SRC =	src/tracking.cpp \
 test/test_tracking.cpp

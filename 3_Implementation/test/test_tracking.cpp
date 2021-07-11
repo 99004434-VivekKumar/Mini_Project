@@ -55,10 +55,10 @@ TEST(Data, stringToObject)
 }
 
 /**
- * @brief Testing highestPowerConsumer function
+ * @brief Testing highestDemandConsumer function
  * 
  */
-TEST(Data, highestPowerConsumer)
+TEST(Data, highestDemandConsumer)
 {
   vector<Data> testInventory;
   Data a = stringToObject("Shampoo,101,50.1,Available,25.51");
