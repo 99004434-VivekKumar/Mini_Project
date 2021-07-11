@@ -1,19 +1,18 @@
-PROJ_NAME = Inventory
+PROJ_NAME = tracking
 TEST_PROJ_NAME = Test_$(PROJ_NAME)
 TEST_OUTPUT = Test_$(PROJ_NAME)
 PROJECT_OUTPUT = $(PROJ_NAME)
 
 CC = g++
 
-INC_H = inc
+INC_H = -Iinc
 
-SRC =	src/inventory.cpp \ 
-	inc/inventory.h \
-	test/test.cpp
+SRC =	src/tracking.cpp \
+test/test_tracking.cpp
 	
 LIB = -lgtest -lgtest_main -lpthread
 
-COV_SRC = test.cpp
+COV_SRC = test_tracking.cpp
 
 #To check if the OS is Windows or Linux and set the executable file extension and delete command accordingly
 ifdef OS
@@ -30,14 +29,14 @@ endif
 .PHONY: run clean test doc all
 
 all:
-	$(CC) $(SRC) $(LIB) -o $(call FixPath,$(PROJECT_OUTPUT).$(EXEC))
+	$(CC) $(SRC) $(INC) $(LIB) -o $(call FixPath,$(PROJECT_OUTPUT).$(EXEC))
 	
 run:
 	./$(call FixPath,$(PROJECT_OUTPUT).$(EXEC))
 
 coverage:
-	#cp test_vector.cpp .
-	$(CC) -fprofile-arcs -ftest-coverage $(SRC) $(LIB) -o $(call FixPath, $(TEST_OUTPUT).$(EXEC))
+	#cp test_tracking.cpp .
+	$(CC) -fprofile-arcs -ftest-coverage $(SRC) $(INC) $(LIB) -o $(call FixPath, $(TEST_OUTPUT).$(EXEC))
 	$(call FixPath, ./$(TEST_OUTPUT).$(EXEC))
 	gcov -a $(COV_SRC)
 	$(RM) *.gcda
@@ -53,7 +52,7 @@ cppcheck:
 	cppcheck --enable=all $(SRC)
 
 valgrind:
-	$(CC) -fprofile-arcs -ftest-coverage $(SRC) $(LIB) -o $(call FixPath, $(TEST_OUTPUT).$(EXEC))
+	$(CC) -fprofile-arcs -ftest-coverage $(SRC) $(INC) $(LIB) -o $(call FixPath, $(TEST_OUTPUT).$(EXEC))
 	valgrind ./$(TEST_OUTPUT).$(EXEC)
 	$(RM) *.gcda
 	$(RM) *.tcc.gcov
@@ -62,7 +61,7 @@ valgrind:
 	$(RM) *.$(EXEC) 
 
 debug:
-	gcc -I $(INC_H) $(SRC) -g -o $(PROJ_NAME).$(EXEC)
+	gcc -I $(INC) $(SRC) -g -o $(PROJ_NAME).$(EXEC)
 	gdb $(PROJ_NAME).$(EXEC)
 
 clean:
