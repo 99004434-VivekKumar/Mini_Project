@@ -2,6 +2,24 @@
 Bill::Bill(){
 
 }
+    vector <int> Bill::get_ProductNumber(){
+          return ProductNumber;
+     }
+    vector <double>Bill::get_Demand(){
+         return Demand;
+
+     }
+    vector <double> Bill::get_Price(){
+         return Price;
+
+     }
+     vector <string> Bill::get_ProductName(){
+         return ProductName;
+
+     }
+     vector <string> Bill:: get_status(){
+         return Status;
+     }
   void Bill::read_data_set(){
          fstream file;
          file.open("data.csv", ios::in);
@@ -27,8 +45,8 @@ Bill::Bill(){
             cout<<row[4]<<endl;
            */
         }
-           /*
-            cout<<ProductName[0];
+           
+          /*  cout<<ProductName[0];
             cout<<ProductNumber[1];
             cout<<Price[4];
             cout<<Status[3];
@@ -87,6 +105,7 @@ void Bill::get_details(Bill b){
 Bill::~Bill()
 {
 }
+/*
 int main(){
    int id;
    Bill b;
@@ -94,3 +113,4 @@ int main(){
    
   return 0;
 }
+*/
