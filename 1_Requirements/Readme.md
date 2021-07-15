@@ -40,23 +40,23 @@ No. | Features
 
 ## Who
 
-** **
+* Small and medium-sized supermarkets has an important position in Chinese economic development. At present, our country has a lot of small and medium-sized supermarkets, regions are widely distributed, and the information level of small and medium-sized supermarkets is still very low.
 
 ## What
 
-** ** 
+* With the rapid development of modern science and technology, computer technology has penetrated into all fields and becomes the necessary tools for various industries, especially the Internet technology promotion and the establishment of the information highway. It makes the IT industry increasingly shows its unique advantages in the market competition. 
+* Into the digital age, there is a huge data information waiting for processing and transmission, which makes the further
+development and use of the database is particularly urgent.
 
 ## When
 
-** ** 
-
-## Where
-
-** **
+* During the 1940s and ’50s, they became the major food-marketing channel in the United States, and in the 1950s they spread through much of Europe. The extent to which they have succeeded in various countries has depended on the ability or willingness of producers and wholesalers to adapt their operations to large-scale retailing. The spread of supermarkets has been part of a trend in the developed countries toward reducing costs and simplifying the pattern of marketing.
 
 ## How
 
-** ** 
+* Generally speaking, the user's demand for procurement, sales and inventory system is universal. Supermarket management system used in the supermarket's procurement, sales and
+warehouse department, controlling and tracking the whole business of supermarket procurement, sales and warehouse effectively. 
+* Using the supermarket's procurement, sales and inventory management system can effectively reduce the blind procurement, reduce the costs of procurement, reasonable control inventory, increase market sensitivity, and enhance the market competitiveness of the supermarkets. 
 
 # Detail requirements
 ## High Level Requirements
