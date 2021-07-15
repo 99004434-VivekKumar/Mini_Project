@@ -8,7 +8,8 @@ CC = g++
 INC = -Iinc
 
 SRC =	src/tracking.cpp \
-test/test_tracking.cpp
+test/test_tracking.cpp \
+scr/Bill.cpp
 	
 LIB = -lgtest -lgtest_main -lpthread
 
