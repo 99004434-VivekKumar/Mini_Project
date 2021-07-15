@@ -18,6 +18,7 @@ supermarkets and supermarket managers.
 * To adapt to market competition, it requires efficient handling and management methods, so it is indispensable that accelerate the process of the computerization.
  
 ## Cost and Features
+As the implementation is software based. The system is free of cost. 
 
 
 *
