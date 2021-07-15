@@ -20,9 +20,6 @@ supermarkets and supermarket managers.
 ## Cost and Features
 As the implementation is software based. The system is free of cost. 
 
-
-*
-
 No. | Features 
 ----|--------------------------------
 1   |  f1  
@@ -36,7 +33,8 @@ No. | Features
 ![SYSTEM Structure]()
 
 ## SWOT ANALYSIS
-![SWOT-Sample]()
+![image](https://user-images.githubusercontent.com/84494228/125833767-69ad6bf6-a9c6-40eb-805e-8894388d0676.png)
+
 
 # 4W&#39;s and 1&#39;H
 
