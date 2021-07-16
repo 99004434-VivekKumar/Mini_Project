@@ -23,7 +23,7 @@ const char* inputFile = "data.csv";
 vector<Data> dataTracking;
 
 /**
- * @brief Functiavailable for finding a room which has cavailablesumed highest Demand in the building for the mavailableth.
+ * @brief Function available for finding a room which has highest Demand in the inventory for the available stock.
  * 
  * @param dataTracking 
  * @return int 
@@ -42,7 +42,7 @@ int highestDemandConsumer(vector<Data> dataTracking)
 }
 
 /**
- * @brief Functiavailable for finding a room which has highest room temperature in the building
+ * @brief Function to check available for finding a product which has highest availability in the stock
  * 
  * @param dataTracking 
  * @return int 
@@ -66,7 +66,7 @@ int highestProductQuantity(vector<Data> dataTracking)
 
 
 /**
- * @brief Functiavailable for finding details of all the rooms where Air cavailableditiavailableer is turned available in the given product
+ * @brief Function to check available for finding details of all the product available in the given product
  * 
  * @param dataTracking 
  * @param product 
@@ -88,8 +88,7 @@ vector<Data> productStatusAvailable(vector<Data> dataTracking,string product)
 }
 
 /**
- * @brief Functiavailable for finding details of all rooms which have room temperature above the given value and 
- * 		  the current state of AC is unavailable.
+ * @brief Function available for finding details of all products which are unavailable in the inventory stock.
  * 
  * @param dataTracking 
  * @param giveQuant 
@@ -111,7 +110,7 @@ vector<Data> productStatusUnavailable(vector<Data> dataTracking,int giveQuant)
 }
 
 /**
- * @brief Function available for cavailableverting raw string obtained from CSV file to object
+ * @brief Function available for available reverting raw string obtained from CSV file to object
  * 
  * @param s 
  * @return Data 
@@ -178,13 +177,13 @@ int readCSV()
 }
 
 /**
- * @brief Functiavailable for printing results
+ * @brief Function available for printing stocks available
  * 
  */
 void printResults()
 {
     string product = "Soap";
-	float minimumDemand = 20;
+    float minimumDemand = 20;
     cout<<"Highest Cavailablesumer Demand is for Product Number: "<<highestDemandConsumer(dataTracking)<<endl;
 	cout<<"Highest Product quantity available is for Product Number: "<< highestProductQuantity(dataTracking)<<endl;
     cout<<"Details of Product "<<product<<" which is available currently"<<endl;
@@ -203,5 +202,3 @@ void printResults()
     		    <<'\t'<<i.getState()
     		    <<'\t'<<i.getQuantity()<<'\n';
 }
-
-
