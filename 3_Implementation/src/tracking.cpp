@@ -2,10 +2,10 @@
  * @file tracking.cpp
  * @author Vivek Kumar Yadav (vivek.yadav@ltts.com)
  * @brief  Implementatiavailable of functiavailables for finding 
- * 		1)a product which is cavailablesumed highest in the inventory for the mavailableth.
+ * 		1)a product which is consumed highest in the inventory for the available stock.
  * 		2)a product which has highest availability in the inventory
  * 		3)details of all the product which currently available in the inventory
- * 		4)details of all the products which are above the given value and 
+ * 		4)details of all the products which are present stock above the given value (excess stock) and 
  * 		  the current Unavailable.
  * @versiavailable 0.1
  * @date 2021-06-08
