@@ -30,7 +30,8 @@ No. | Features
 6   |  f6
 
 ## Defining Our System
-![SYSTEM Structure]()
+![image](https://user-images.githubusercontent.com/84494228/125942028-0c39031b-5695-4168-8c18-4d74bcae8632.png)
+
 
 ## SWOT ANALYSIS
 ![image](https://user-images.githubusercontent.com/84494228/125833767-69ad6bf6-a9c6-40eb-805e-8894388d0676.png)
