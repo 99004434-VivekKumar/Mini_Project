@@ -9,6 +9,9 @@
 ## Low Level Behavioural Diagram
 * Process-flow Design
 
+![image](https://user-images.githubusercontent.com/84494228/125981857-32eaef8c-cac5-4b0e-8563-2beaa80aebf3.png)
+
+
 ## System Diagrams
 ## High Level System Diagram
 * System-flow Design : Structural and Behavioural Diagram
