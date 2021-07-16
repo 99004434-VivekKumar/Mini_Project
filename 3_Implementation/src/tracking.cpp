@@ -2,10 +2,10 @@
  * @file tracking.cpp
  * @author Vivek Kumar Yadav (vivek.yadav@ltts.com)
  * @brief  Implementatiavailable of functiavailables for finding 
- * 		1)a product which is cavailablesumed highest in the inventory for the mavailableth.
+ * 		1)a product which is consumed highest in the inventory for the available stock.
  * 		2)a product which has highest availability in the inventory
  * 		3)details of all the product which currently available in the inventory
- * 		4)details of all the products which are above the given value and 
+ * 		4)details of all the products which are present stock above the given value (excess stock) and 
  * 		  the current Unavailable.
  * @versiavailable 0.1
  * @date 2021-06-08
@@ -23,7 +23,7 @@ const char* inputFile = "data.csv";
 vector<Data> dataTracking;
 
 /**
- * @brief Function for finding highest demanding consumer
+ * @brief Function available for finding a room which has highest Demand in the inventory for the available stock.
  * 
  * @param dataTracking 
  * @return int 
@@ -42,7 +42,7 @@ int highestDemandConsumer(vector<Data> dataTracking)
 }
 
 /**
- * @brief Function to check which product is available in the bulk
+ * @brief Function to check available for finding a product which has highest availability in the stock
  * 
  * @param dataTracking 
  * @return int 
@@ -66,7 +66,8 @@ int highestProductQuantity(vector<Data> dataTracking)
 
 
 /**
- * @brief Function to check the available product status in the store
+ * @brief Function to check available for finding details of all the product available in the given product
+ * 
  * @param dataTracking 
  * @param product 
  * @return vector<Data> 
@@ -87,7 +88,7 @@ vector<Data> productStatusAvailable(vector<Data> dataTracking,string product)
 }
 
 /**
- * @brief Function to check the unavailable products in store
+ * @brief Function available for finding details of all products which are unavailable in the inventory stock.
  * 
  * @param dataTracking 
  * @param giveQuant 
@@ -128,7 +129,7 @@ vector<Data> productsAboutToFinish(vector<Data> dataTracking){
 }
 
 /**
- * @brief Function  for storing raw string obtained from CSV file to object
+ * @brief Function available for available reverting raw string obtained from CSV file to object
  * 
  * @param s 
  * @return Data 
@@ -195,13 +196,13 @@ int readCSV()
 }
 
 /**
- * @brief Functiavailable for printing results
+ * @brief Function available for printing stocks available
  * 
  */
 void printResults()
 {
     string product = "Soap";
-	float minimumDemand = 20;
+    float minimumDemand = 20;
     cout<<"Highest Cavailablesumer Demand is for Product Number: "<<highestDemandConsumer(dataTracking)<<endl;
 	cout<<"Highest Product quantity available is for Product Number: "<< highestProductQuantity(dataTracking)<<endl;
     cout<<"Details of Product "<<product<<" which is available currently"<<endl;
@@ -228,5 +229,3 @@ void printResults()
     		    <<'\t'<<i.getState()
     		    <<'\t'<<i.getQuantity()<<'\n';
 }
-
-
