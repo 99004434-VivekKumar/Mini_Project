@@ -126,5 +126,7 @@ vector<Data> productStatusAvailable(vector<Data>,string);
 
 vector<Data> productStatusUnavailable(vector<Data>,int);
 
+vector<Data> productsAboutToFinish(vector<Data>);
+
 #endif //_TRACKING_H
 

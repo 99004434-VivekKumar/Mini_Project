@@ -71,7 +71,7 @@ TEST(Data, highestDemandConsumer)
 }
 
 /**
- * @brief Testing highestRoomTemperature function
+ * @brief Testing highestProductQuantity function
  * 
  */
 TEST(Data, highestProductQuantity)
@@ -86,8 +86,9 @@ TEST(Data, highestProductQuantity)
   EXPECT_EQ(5, highestProductQuantity(testInventory));
 }
 
+
 /**
- * @brief Testing airConditionerStatusON function
+ * @brief Testing productStatusAvailable function
  * 
  */
 TEST(Data, productStatusAvailable)
@@ -127,7 +128,7 @@ TEST(Data, productStatusAvailable)
 }
 
 /**
- * @brief Testing airConditionerStatusOFF function
+ * @brief Testing productStatusUnavailable function
  * 
  */
 TEST(Data, productStatusUnavailable)
@@ -156,6 +157,46 @@ TEST(Data, productStatusUnavailable)
   expectedResultInventory.push_back(h);
 
   resultInventory = productStatusUnavailable(testInventory, minimumQuantity);
+  for (int i = 0; i < expectedResultInventory.size(); ++i)
+  {
+   EXPECT_EQ(expectedResultInventory[i].getProductName(), resultInventory[i].getProductName()); 
+   EXPECT_EQ(expectedResultInventory[i].getProductNum(), resultInventory[i].getProductNum()); 
+   EXPECT_EQ(expectedResultInventory[i].getDemand(), resultInventory[i].getDemand()); 
+   EXPECT_EQ(expectedResultInventory[i].getState(), resultInventory[i].getState()); 
+   EXPECT_EQ(expectedResultInventory[i].getQuantity(), resultInventory[i].getQuantity());
+  }
+}
+ 
+ /**
+  * @brief testing the function productsAboutToFinish
+  * 
+  */
+TEST(Data, productsAboutToFinish){
+   vector<Data> testInventory, resultInventory, expectedResultInventory;
+  int minimumQuantity = 30;
+  Data a = stringToObject("Shampoo,101,50.1,Available,15.51");
+  Data b = stringToObject("Soap,5,90.5,Unavailable,35.6");
+  Data c = stringToObject("Sugar,403,70.4,Available,12.74");
+  Data d = stringToObject("Soap,1,50,Available,25.5");
+  Data e = stringToObject("Soap,2,60,Available,17.6");
+  Data f = stringToObject("Soap,3,70,Available,25.7");
+  Data g = stringToObject("Soap,100,80,Unavailable,65");
+  Data h = stringToObject("Salt,204,80.2,Available,20.00");
+  testInventory.push_back(a);
+  testInventory.push_back(b);
+  testInventory.push_back(c);
+  testInventory.push_back(d);
+  testInventory.push_back(e);
+  testInventory.push_back(f);
+  testInventory.push_back(g);
+  testInventory.push_back(h);
+  
+  expectedResultInventory.push_back(a);
+  expectedResultInventory.push_back(c);
+  expectedResultInventory.push_back(e);
+  expectedResultInventory.push_back(h);
+
+  resultInventory = productsAboutToFinish(testInventory);
   for (int i = 0; i < expectedResultInventory.size(); ++i)
   {
    EXPECT_EQ(expectedResultInventory[i].getProductName(), resultInventory[i].getProductName()); 

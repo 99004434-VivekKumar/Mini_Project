@@ -23,7 +23,7 @@ const char* inputFile = "data.csv";
 vector<Data> dataTracking;
 
 /**
- * @brief Functiavailable for finding a room which has cavailablesumed highest Demand in the building for the mavailableth.
+ * @brief Function for finding highest demanding consumer
  * 
  * @param dataTracking 
  * @return int 
@@ -42,7 +42,7 @@ int highestDemandConsumer(vector<Data> dataTracking)
 }
 
 /**
- * @brief Functiavailable for finding a room which has highest room temperature in the building
+ * @brief Function to check which product is available in the bulk
  * 
  * @param dataTracking 
  * @return int 
@@ -66,8 +66,7 @@ int highestProductQuantity(vector<Data> dataTracking)
 
 
 /**
- * @brief Functiavailable for finding details of all the rooms where Air cavailableditiavailableer is turned available in the given product
- * 
+ * @brief Function to check the available product status in the store
  * @param dataTracking 
  * @param product 
  * @return vector<Data> 
@@ -88,8 +87,7 @@ vector<Data> productStatusAvailable(vector<Data> dataTracking,string product)
 }
 
 /**
- * @brief Functiavailable for finding details of all rooms which have room temperature above the given value and 
- * 		  the current state of AC is unavailable.
+ * @brief Function to check the unavailable products in store
  * 
  * @param dataTracking 
  * @param giveQuant 
@@ -109,9 +107,28 @@ vector<Data> productStatusUnavailable(vector<Data> dataTracking,int giveQuant)
 	}
 	return Unavailable;
 }
+/**
+ * @brief Function to search the products which are about to finish in the store.
+ * 
+ * @param dataTracking 
+ * @return vector<Data> 
+ */
+vector<Data> productsAboutToFinish(vector<Data> dataTracking){
+	vector<Data> limitedproducts;
+	
+	float miniQuant = 20.00;
+	for(auto i:dataTracking){
+		
+    		if( i.getQuantity()<= miniQuant)
+    		{
+    			limitedproducts.push_back(i);
+    		} 
+	}
+	return limitedproducts;
+}
 
 /**
- * @brief Function available for cavailableverting raw string obtained from CSV file to object
+ * @brief Function  for storing raw string obtained from CSV file to object
  * 
  * @param s 
  * @return Data 
@@ -149,7 +166,7 @@ Data stringToObject(string s)
 }
 
 /**
- * @brief Functiavailable for reading CSV file
+ * @brief Function for reading CSV file
  * 
  * @return int 
  */
@@ -197,6 +214,14 @@ void printResults()
     
 	cout<<"Details of Product which is Unavailable and demand is high "<<minimumDemand<<endl;	    
    	for(auto i:productStatusUnavailable(dataTracking,minimumDemand))
+		cout<<i.getProductName()
+    		    <<'\t'<<i.getProductNum()
+    		    <<'\t'<<i.getDemand()
+    		    <<'\t'<<i.getState()
+    		    <<'\t'<<i.getQuantity()<<'\n';
+
+	cout<<"Details of Product which are about to limit in the store "<<endl;	    
+   	for(auto i:productsAboutToFinish( dataTracking))
 		cout<<i.getProductName()
     		    <<'\t'<<i.getProductNum()
     		    <<'\t'<<i.getDemand()
