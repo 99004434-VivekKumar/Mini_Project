@@ -1,10 +1,10 @@
 /**
  * @file tracking.cpp
  * @author Vivek Kumar Yadav (vivek.yadav@ltts.com)
- * @brief  Implementatiavailable of functiavailables for finding 
+ * @brief  Implementation of functions for finding:
  * 		1)a product which is consumed highest in the inventory for the available stock.
  * 		2)a product which has highest availability in the inventory
- * 		3)details of all the product which currently available in the inventory
+ * 		3)details of all the product which are currently available in the inventory
  * 		4)details of all the products which are in high demand and currently unavailable.
  * @version available 0.1
  * @date 2021-06-08
@@ -22,7 +22,7 @@ const char* inputFile = "data.csv";
 vector<Data> dataTracking;
 
 /**
- * @brief Function available for finding a room which has highest demand and available stock in the inventory.
+ * @brief Function available for finding a room which has highest demand and stock available in the inventory.
  * 
  * @param dataTracking 
  * @return int 
