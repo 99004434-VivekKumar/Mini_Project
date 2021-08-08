@@ -5,9 +5,8 @@
  * 		1)a product which is consumed highest in the inventory for the available stock.
  * 		2)a product which has highest availability in the inventory
  * 		3)details of all the product which currently available in the inventory
- * 		4)details of all the products which are present stock above the given value (excess stock) and 
- * 		  the current Unavailable.
- * @versiavailable 0.1
+ * 		4)details of all the products which are in high demand and currently unavailable.
+ * @version available 0.1
  * @date 2021-06-08
  * 
  * @copyright Copyright (c) 2021
@@ -16,14 +15,14 @@
 #include "tracking.h"
 
 /**
- * @brief Input csv file name or path to file
+ * @brief Input CSV file name or path to file
  * 
  */
 const char* inputFile = "data.csv";
 vector<Data> dataTracking;
 
 /**
- * @brief Function available for finding a room which has highest Demand in the inventory for the available stock.
+ * @brief Function available for finding a room which has highest demand and available stock in the inventory.
  * 
  * @param dataTracking 
  * @return int 
@@ -42,7 +41,7 @@ int highestDemandConsumer(vector<Data> dataTracking)
 }
 
 /**
- * @brief Function to check available for finding a product which has highest availability in the stock
+ * @brief Function for finding a product which has highest availability in the inventory
  * 
  * @param dataTracking 
  * @return int 
@@ -66,7 +65,7 @@ int highestProductQuantity(vector<Data> dataTracking)
 
 
 /**
- * @brief Function to check available for finding details of all the product available in the given product
+ * @brief Function for finding details of all the product available in the given product
  * 
  * @param dataTracking 
  * @param product 
@@ -88,7 +87,7 @@ vector<Data> productStatusAvailable(vector<Data> dataTracking,string product)
 }
 
 /**
- * @brief Function available for finding details of all products which are unavailable in the inventory stock.
+ * @brief Function for finding details of all products which are unavailable in the inventory stock.
  * 
  * @param dataTracking 
  * @param giveQuant 
@@ -129,7 +128,7 @@ vector<Data> productsAboutToFinish(vector<Data> dataTracking){
 }
 
 /**
- * @brief Function available for available reverting raw string obtained from CSV file to object
+ * @brief Function for reverting raw string obtained from CSV file to object
  * 
  * @param s 
  * @return Data 
@@ -138,11 +137,11 @@ Data stringToObject(string s)
 {
 	string delimiter = ",";
 	string productName;
-    string productNumber;
-    string Demand;
-    string state;
-    string productQuantity;
-    int p=1;
+    	string productNumber;
+    	string Demand;
+    	string state;
+    	string productQuantity;
+    	int p=1;
 	size_t pos = 0;
 	string token;
 	while ((pos = s.find(delimiter)) != string::npos) {
@@ -151,13 +150,13 @@ Data stringToObject(string s)
 	    if(p==1){
 	    productName = token;
 	    }else if(p==2){
-	    productNumber=token;
+	    	productNumber=token;
 	    }
 	    else if(p==3){
-	    Demand=token;
+	   	Demand=token;
 	    }
 	    else if(p==4){
-	    state=token;
+	    	state=token;
 	    }   
 	    p++;
 	}
@@ -196,24 +195,24 @@ int readCSV()
 }
 
 /**
- * @brief Function available for printing stocks available
+ * @brief Function for printing inventory available
  * 
  */
 void printResults()
 {
-    string product = "Soap";
-    float minimumDemand = 20;
-    cout<<"Highest Cavailablesumer Demand is for Product Number: "<<highestDemandConsumer(dataTracking)<<endl;
+    	string product = "Soap";
+    	float minimumDemand = 20;
+    	cout<<"Highest Cavailablesumer Demand is for Product Number: "<<highestDemandConsumer(dataTracking)<<endl;
 	cout<<"Highest Product quantity available is for Product Number: "<< highestProductQuantity(dataTracking)<<endl;
-    cout<<"Details of Product "<<product<<" which is available currently"<<endl;
-    for(auto i:productStatusAvailable(dataTracking, product))
+    	cout<<"Details of Product "<<product<<" which is available currently"<<endl;
+    	for(auto i:productStatusAvailable(dataTracking, product))
 		cout<<i.getProductName()
     		    <<'\t'<<i.getProductNum()
     		    <<'\t'<<i.getDemand()
     		    <<'\t'<<i.getState()
     		    <<'\t'<<i.getQuantity()<<'\n';
     
-	cout<<"Details of Product which is Unavailable and demand is high "<<minimumDemand<<endl;	    
+	cout<<"Details of Product which is unavailable with high demand "<<minimumDemand<<endl;	    
    	for(auto i:productStatusUnavailable(dataTracking,minimumDemand))
 		cout<<i.getProductName()
     		    <<'\t'<<i.getProductNum()
@@ -221,7 +220,7 @@ void printResults()
     		    <<'\t'<<i.getState()
     		    <<'\t'<<i.getQuantity()<<'\n';
 
-	cout<<"Details of Product which are about to limit in the store "<<endl;	    
+	cout<<"Details of Product which are about to finish in the inventory "<<endl;	    
    	for(auto i:productsAboutToFinish( dataTracking))
 		cout<<i.getProductName()
     		    <<'\t'<<i.getProductNum()
