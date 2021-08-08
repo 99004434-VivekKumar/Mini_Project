@@ -23,8 +23,7 @@ PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|No of Test C
 -------|---------------------|----------------|----------------|---------------|-------------|--------------
 `99004433` | Vishal Singh  | i1   |  No     |  No   |X No   |X No      
 `99004434` | Vivek Kumar Yadav  | i2   |  No     |  No   |X No   |X No      
-`99004435` | Jahnavi Jha  | i3   |  No     |  No   |X No   |X No        
-`99004437` | Praveen Kumar G  | i4   |  No     |  No   |X No   |X No      
+`99004435` | Jahnavi Jha  | i3   |  No     |  No   |X No   |X No          
 
 ## Features:
 ID | Description 
